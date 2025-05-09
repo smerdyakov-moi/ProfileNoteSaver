@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css"></link>
+</head>
+<body>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white">
+        <a class="text-cyan-500" href="/">Return to Create Page</a>
+        <h1 class= "text-3xl tracking-tighter mb-3 mt-10 " >All Users</h1>
+        <div class = "users flex gap-3 flex-warp">
+            <!-- The for loop helps go through each object present in the array and display it in a stylish manner using frontend aspects which I understand but 
+             can't practice -->
+            <%users.forEach((user)=>{%>
+                    <div class = "user w-30 p-4 bg-zinc-800 rounded-lg"> 
+                        <div class ="w-full h-52 rounded-lg bg-zinc-700 overflow-hidden">
+                            <img class = "w-full h-full object-cover object-top" src="<%= user.image%>">
+                        </div>
+                        <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+                        <h5 class="text-zinc-500"><%= user.email %></h5>
+                        <div class ="flex-gap-3">
+                            <!-- The edit page routes the 'Edit User' to the route with a dynamic routing of user._id which can be impleneted using req.params-->
+                            <a class="text-blue-500" href="/edit/<%= user._id%>">Edit User</a>
+
+                            <!-- The href routes the 'Delete User' to the /delete/<%=user.email%> which is essential as we need only need any one record to delete the whole user-->
+                            <a class="text-red-500" class="text-zinc-200" href="/delete/<%= user._id %>">Delete User</a>
+                            <a class="text-yellow-500" class="text-zinc-200" href="/readFiles/<%= user._id %>">Read Files</a>  
+                        </div>
+                    </div>
+                <%})
+            %>
+        </div>
+    </div>
+</body>
+</html>
