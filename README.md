@@ -23,3 +23,8 @@ Cons:
 
 
 ---Haphazard routes---
+
+
+
+
+Create a 'Folders' folder under the primary directory.
